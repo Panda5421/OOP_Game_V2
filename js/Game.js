@@ -30,10 +30,21 @@
  	}
 
  	/**
-     * Branches code, depending on which letter was clicked
-     * @param   {Object}	button - button being clicked on
+     * Branches code, depending on which letter was clicked/typed
+     * @param   {Event}	e - event being triggered
      */
- 	handleInteraction(button) {
+ 	handleInteraction(e) {
+ 		let button;
+ 		if(e.target.nodeName === 'BODY') {
+ 			const buttons = document.querySelectorAll('#qwerty button');
+	 		for(let b of buttons) {
+	 			if(b.textContent == e.key) {
+	 				button = b;
+	 				break;
+	 			}
+ 			}
+ 		} else { button = e.target }
+
  		button.disabled = true;
 
  		if(this.activePhrase.checkLetter(button.textContent)) {

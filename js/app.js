@@ -5,8 +5,7 @@ const startBtn = document.querySelector('#btn__reset');
 const keyboard = document.querySelector('#qwerty');
 let game;
 
-document.addEventListener('keydown', e => {
-	console.log(e.target);
+document.querySelector('body').addEventListener('keydown', e => {
 	game.handleInteraction(e);
 });
 
@@ -20,4 +19,3 @@ startBtn.addEventListener('click', e => {
 	game = new Game();
 	game.startGame();
 });
-
