@@ -43,12 +43,12 @@
  		if(e.target.nodeName === 'BODY') {
  			const buttons = document.querySelectorAll('#qwerty button');
 	 		for(let b of buttons) {
-	 			if(b.textContent == e.key.toLowerCase()) {
+	 			if(b.textContent == e.key.toLowerCase() && b.disabled !== true) {
 	 				button = b;
 	 				break;
 	 			}
  			}
- 		} else { button = e.target }
+ 		} else if(e.target.disabled !== true) { button = e.target }
 
  		button.disabled = true;
 

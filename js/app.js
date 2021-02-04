@@ -1,6 +1,10 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * app.js */
+const warning = document.createElement('H4');
+warning.textContent = 'Beware of sound effects. Turn down your volume if using headphones.';
+document.querySelector('#overlay').appendChild(warning);
+
 const startBtn = document.querySelector('#btn__reset');
 const keyboard = document.querySelector('#qwerty');
 let game;
