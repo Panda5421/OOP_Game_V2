@@ -50,27 +50,29 @@
  			}
  		} else if(e.target.disabled !== true) { button = e.target }
 
- 		button.disabled = true;
+ 		if(button) {
+               button.disabled = true;
 
- 		if(this.activePhrase.checkLetter(button.textContent)) {
-               //loads all sounds so they don't overlap
-               this.wrong.load();
-               this.correct.load();
-               this.correct.play();
- 			button.className = 'chosen';
- 			this.activePhrase.showMatchedLetter(button.textContent);
+      		if(this.activePhrase.checkLetter(button.textContent)) {
+                    //loads all sounds so they don't overlap
+                    this.wrong.load();
+                    this.correct.load();
+                    this.correct.play();
+      			button.className = 'chosen';
+      			this.activePhrase.showMatchedLetter(button.textContent);
 
- 			if(this.checkForWin()) {
- 				this.gameOver(true);
- 			}
+      			if(this.checkForWin()) {
+      				this.gameOver(true);
+      			}
 
- 		} else {
- 			button.className = 'wrong';
-               //loads all sounds so they don't overlap
-               this.wrong.load();
-               this.correct.load();
- 			this.removeLife();
- 		}
+      		} else {
+      			button.className = 'wrong';
+                    //loads all sounds so they don't overlap
+                    this.wrong.load();
+                    this.correct.load();
+      			this.removeLife();
+      		}
+          }
  	}
 
  	/**
@@ -112,8 +114,8 @@
           //resets gameboard and pauses all sounds so 
           //they don't overlap with win/lose sound
           this.reset();
-          this.wrong.pause();
-          this.correct.pause();
+          this.wrong.load();
+          this.correct.load();
 
  		const overlay = document.querySelector('#overlay');
  		const msg = document.querySelector('#game-over-message');

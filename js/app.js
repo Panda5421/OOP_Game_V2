@@ -11,7 +11,9 @@ let game;
 
 //handles physical keyboard interaction
 document.querySelector('body').addEventListener('keydown', e => {
-	game.handleInteraction(e);
+	if(/[a-z]/.test(e.key.toLowerCase()) && game) {
+		game.handleInteraction(e);
+	}
 });
 
 //handles on-screen keyboard interaction
