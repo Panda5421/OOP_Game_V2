@@ -43,7 +43,7 @@
  		if(e.target.nodeName === 'BODY') {
  			const buttons = document.querySelectorAll('#qwerty button');
 	 		for(let b of buttons) {
-	 			if(b.textContent == e.key.toLowerCase() && b.disabled !== true) {
+	 			if(b.textContent == e.key.toLowerCase() && !b.disabled) {
 	 				button = b;
 	 				break;
 	 			}
@@ -107,7 +107,7 @@
  	}
 
  	/**
-     * Ends game, shows start screen displaying message, and resets gameboard
+     * Ends game, shows start screen display message, and resets gameboard
      * @param   {boolean}	outcome - whether game has been won or lost
      */
  	gameOver(outcome) {
